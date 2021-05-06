@@ -4,6 +4,7 @@ import {
 	Text,
 	TextInput,
 	TouchableHighlight,
+	TouchableOpacity,
 	View,
 } from "react-native";
 import PropTypes from "prop-types";
@@ -1322,7 +1323,7 @@ class InputSpinner extends Component {
 
 				{this.props.prepend}
 
-				<TouchableHighlight onPress={this.onTapInput.bind(this)}>
+				<TouchableOpacity onPress={this.onTapInput.bind(this)} activeOpacity={1}>
 					<TextInput
 						ref={(input) => (this.textInput = input)}
 						style={this._getInputTextStyle()}
@@ -1345,7 +1346,7 @@ class InputSpinner extends Component {
 						onSubmitEditing={this.onSubmit.bind(this)}
 						{...this.props.inputProps}
 					/>
-				</TouchableHighlight>
+				</TouchableOpacity>
 				
 				{this.props.children}
 				{this.props.append}
