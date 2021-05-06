@@ -1,5 +1,5 @@
 {
-	"name": "react-native-input-spinner",
+	"name": "@springglobal/react-native-input-spinner",
 	"version": "1.7.10",
 	"description": "React native input with increase and decrease buttons",
 	"main": "./src/index.js",

@@ -372,6 +372,17 @@ class InputSpinner extends Component {
 		}
 		this.setState({focused: true});
 	}
+	
+	/**
+	 * On tap input
+	 * @returns {*}
+	 * @param e
+	 */
+	onTapInput(e) {
+		if (this.props.onTapInput) {
+			this.props.onTapInput(e);
+		}
+	}
 
 	/**
 	 * On Blur
@@ -1311,29 +1322,31 @@ class InputSpinner extends Component {
 
 				{this.props.prepend}
 
-				<TextInput
-					ref={(input) => (this.textInput = input)}
-					style={this._getInputTextStyle()}
-					value={this.getValue()}
-					placeholder={this.getPlaceholder()}
-					placeholderTextColor={this.getPlaceholderColor()}
-					selectionColor={this.props.selectionColor}
-					selectTextOnFocus={this.props.selectTextOnFocus}
-					returnKeyType={this.props.returnKeyType}
-					returnKeyLabel={this.props.returnKeyLabel}
-					autoFocus={this.props.autoFocus}
-					autoCapitalize={this._getAutoCapitalize()} // Bug fix for Samsung Keyboard
-					editable={this.isEditable()}
-					maxLength={this.props.maxLength}
-					onKeyPress={this.onKeyPress.bind(this)}
-					onFocus={this.onFocus.bind(this)}
-					onBlur={this.onBlur.bind(this)}
-					keyboardType={this._getKeyboardType()}
-					onChangeText={this.onChange.bind(this)}
-					onSubmitEditing={this.onSubmit.bind(this)}
-					{...this.props.inputProps}
-				/>
-
+				<TouchableHighlight onPress={this.onTapInput.bind(this)}>
+					<TextInput
+						ref={(input) => (this.textInput = input)}
+						style={this._getInputTextStyle()}
+						value={this.getValue()}
+						placeholder={this.getPlaceholder()}
+						placeholderTextColor={this.getPlaceholderColor()}
+						selectionColor={this.props.selectionColor}
+						selectTextOnFocus={this.props.selectTextOnFocus}
+						returnKeyType={this.props.returnKeyType}
+						returnKeyLabel={this.props.returnKeyLabel}
+						autoFocus={this.props.autoFocus}
+						autoCapitalize={this._getAutoCapitalize()} // Bug fix for Samsung Keyboard
+						editable={this.isEditable()}
+						maxLength={this.props.maxLength}
+						onKeyPress={this.onKeyPress.bind(this)}
+						onFocus={this.onFocus.bind(this)}
+						onBlur={this.onBlur.bind(this)}
+						keyboardType={this._getKeyboardType()}
+						onChangeText={this.onChange.bind(this)}
+						onSubmitEditing={this.onSubmit.bind(this)}
+						{...this.props.inputProps}
+					/>
+				</TouchableHighlight>
+				
 				{this.props.children}
 				{this.props.append}
 
@@ -1386,6 +1399,7 @@ InputSpinner.propTypes = {
 	height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
+	onTapInput: PropTypes.func,
 	onBlur: PropTypes.func,
 	onKeyPress: PropTypes.func,
 	onMin: PropTypes.func,
