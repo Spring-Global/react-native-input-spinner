@@ -44,6 +44,7 @@ export interface ReactNativeInputSpinnerProps {
 	height?: string | number;
 	onChange?(...args: unknown[]): unknown;
 	onFocus?(...args: unknown[]): unknown;
+	onTapInput?(...args: unknown[]): unknown;
 	onBlur?(...args: unknown[]): unknown;
 	onKeyPress?(...args: unknown[]): unknown;
 	onMin?(...args: unknown[]): unknown;
