@@ -42,6 +42,7 @@ export interface ReactNativeInputSpinnerProps {
 	returnKeyType?: string;
 	width?: string | number;
 	height?: string | number;
+	displayFunc?: (val:number) => string;
 	onChange?(...args: unknown[]): unknown;
 	onFocus?(...args: unknown[]): unknown;
 	onTapInput?(...args: unknown[]): unknown;
@@ -58,6 +59,7 @@ export interface ReactNativeInputSpinnerProps {
 	emptied?: boolean;
 	continuity?: boolean;
 	typingTime?: number;
+	hasTapHold?: boolean;
 	buttonLeftDisabled?: boolean;
 	buttonRightDisabled?: boolean;
 	buttonLeftText?: string;
