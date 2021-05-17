@@ -1,6 +1,6 @@
 {
   "name": "@spring-global/react-native-input-spinner",
-  "version": "1.7.13",
+  "version": "1.7.14",
   "description": "React native numeric spinner fork from https://www.npmjs.com/package/react-native-input-spinner",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",

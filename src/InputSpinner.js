@@ -95,7 +95,7 @@ class InputSpinner extends Component {
      */
     componentDidUpdate(prevProps) {
         // Parse Value
-        if (this.props.value !== prevProps.value || this.props.value !== this.state.value) {
+        if (this.props.value !== prevProps.value) {
             let newValue = this._parseNum(this.props.value);
             newValue = this._withinRange(newValue);
             this._updateValue(newValue);
