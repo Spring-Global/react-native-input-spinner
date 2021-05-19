@@ -653,6 +653,7 @@ class InputSpinner extends Component {
             // Continuity mode
             num = this.state.min;
         } else if (this.isMaxReached(currentValue)) {
+			this.onMax(currentValue);
             return;
         }
 
@@ -721,6 +722,7 @@ class InputSpinner extends Component {
             // Continuity mode
             num = this.state.max;
         } else if (this.isMinReached(currentValue)) {
+			this.onMin(currentValue);
             return;
         }
 
@@ -1546,4 +1548,8 @@ InputSpinner.defaultProps = {
     rightButtonProps: null,
 };
 
-export default InputSpinner;
+// Export
+export default (props) => {
+	const finalProps = {...props };
+	return <InputSpinner {...finalProps} />;
+};
