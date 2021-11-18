@@ -94,23 +94,27 @@ class InputSpinner extends Component {
      * @returns {*}
      */
     componentDidUpdate(prevProps) {
-        // Parse Value
-        if (this.props.value !== prevProps.value) {
-            let newValue = this._parseNum(this.props.value);
-            newValue = this._withinRange(newValue);
-            this._updateValue(newValue);
-        }
+        let min = undefined;
+        let max = undefined;
         // Parse Min
         if (this.props.min !== prevProps.min) {
+            min = this.props.min != null ? this._parseNum(this.props.min) : null;
             this.setState({
-                min: this.props.min != null ? this._parseNum(this.props.min) : null,
+                min
             });
         }
         // Parse Max
         if (this.props.max !== prevProps.max) {
+            max = this.props.max != null ? this._parseNum(this.props.max) : null;
             this.setState({
-                max: this.props.max != null ? this._parseNum(this.props.max) : null,
+                max
             });
+        }
+        // Parse Value
+        if (this.props.value !== prevProps.value) {
+            let newValue = this._parseNum(this.props.value);
+            newValue = this._withinRange(newValue, min, max);
+            this._updateValue(newValue);
         }
         // Parse Step
         if (this.props.step !== prevProps.step) {
